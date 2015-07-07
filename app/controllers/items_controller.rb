@@ -8,7 +8,7 @@ class ItemsController < ApplicationController
 
     respond_to do |format|
       if @item.save
-        format.html {redirect_to root_path, notice: 'Task was successfully created.' }
+        format.html {redirect_to root_path, notice: 'Item was successfully created.' }
       else
         format.html { render :new } 
       end
@@ -21,6 +21,15 @@ class ItemsController < ApplicationController
 
   def index
     @items = Item.all
+  end
+
+  def update
+    @item = Item.find(params[:id])
+    if @item.update(params[:item].permit(:description, :name, :category, :price_publix, :price_winn_dixie, :picture))
+      redirect_to @item, notice: 'Item was successfully updated.'
+    else
+      render :edit
+    end
   end
 
   def show

@@ -1,4 +1,20 @@
-<h1>Items#show</h1>
+<h1><%= @item.name %></h1>
+
+
 <p>
-<%= @item.name %>
+<strong>Publix Price:</strong>
+<%= format_money(@item.price_publix) %>
 </p>
+
+<p>
+<strong>Winn-Dixie Price:</strong>
+<%= format_money(@item.price_winn_dixie) %>
+</p>
+
+<p>
+<strong>Picture:</strong>
+<%= link_to image_tag("#{@item.picture}"), @item %>
+</p>
+
+<%= link_to 'Edit', edit_item_path(@item) %> |
+<%= link_to 'Back', items_path %>
