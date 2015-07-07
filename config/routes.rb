@@ -1,8 +1,15 @@
 Rails.application.routes.draw do
   
+  get 'carts/show'
+
+  get 'carts/update'
+
+  get 'carts/receipt'
+
   resources :items
   resources :lists
   resources :users
+  resources :carts
   root to: 'visitors#index'
   get '/auth/:provider/callback' => 'sessions#create'
   get '/signin' => 'sessions#new', :as => :signin
