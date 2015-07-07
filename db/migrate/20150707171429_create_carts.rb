@@ -1,6 +1,6 @@
-class CreateCartBs < ActiveRecord::Migration
+class CreateCarts < ActiveRecord::Migration
   def change
-    create_table :cart_bs do |t|
+    create_table :carts do |t|
       t.integer :total
 
       t.timestamps null: false

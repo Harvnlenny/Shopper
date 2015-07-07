@@ -16,13 +16,7 @@ ActiveRecord::Schema.define(version: 20150707171759) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "cart_as", force: :cascade do |t|
-    t.integer  "total"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "cart_bs", force: :cascade do |t|
+  create_table "carts", force: :cascade do |t|
     t.integer  "total"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -40,8 +34,7 @@ ActiveRecord::Schema.define(version: 20150707171759) do
   end
 
   create_table "line_items", force: :cascade do |t|
-    t.integer  "cart_a_id"
-    t.integer  "cart_b_id"
+    t.integer  "cart_id"
     t.integer  "item_id"
     t.integer  "quantity"
     t.integer  "subtotal"
@@ -49,8 +42,7 @@ ActiveRecord::Schema.define(version: 20150707171759) do
     t.datetime "updated_at", null: false
   end
 
-  add_index "line_items", ["cart_a_id"], name: "index_line_items_on_cart_a_id", using: :btree
-  add_index "line_items", ["cart_b_id"], name: "index_line_items_on_cart_b_id", using: :btree
+  add_index "line_items", ["cart_id"], name: "index_line_items_on_cart_id", using: :btree
   add_index "line_items", ["item_id"], name: "index_line_items_on_item_id", using: :btree
 
   create_table "lists", force: :cascade do |t|
@@ -67,7 +59,6 @@ ActiveRecord::Schema.define(version: 20150707171759) do
     t.datetime "updated_at", null: false
   end
 
-  add_foreign_key "line_items", "cart_as"
-  add_foreign_key "line_items", "cart_bs"
+  add_foreign_key "line_items", "carts"
   add_foreign_key "line_items", "items"
 end
