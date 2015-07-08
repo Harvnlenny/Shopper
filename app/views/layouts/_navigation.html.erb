@@ -7,6 +7,7 @@
         <li><%= link_to 'Sign In', signin_path, class: "sign-in-button" %></li>
     <% end %>
     <% if user_signed_in? %>
+        <li><%= link_to 'My Lists', lists_path, class: "lists-button" %></li>
         <li><%= link_to 'Users', users_path %></li>
     <% end %>
   </ul>
