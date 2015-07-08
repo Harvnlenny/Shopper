@@ -199,17 +199,19 @@ nav {
   li:first-of-type {
     font-size: 2em;
     text-align: center;
-    text-indent: 0;
   }
 
   li {
     list-style: none;
     border-bottom: 1px dotted #ccc;
-    text-indent: 25px;
     height: auto;
     padding: 10px;
     text-transform: capitalize;
   }
+}
+
+.fa-square-o {
+  margin-right: 25px;
 }
 
 
