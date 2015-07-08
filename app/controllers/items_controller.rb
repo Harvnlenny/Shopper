@@ -21,13 +21,13 @@ class ItemsController < ApplicationController
   end
 
   def index
-    @items = Item.all
+    @items = Item.order(:name)
   end
 
   def update
     @item = Item.find(params[:id])
-    if @item.update(params[:item].permit(:description, :name, :category, :price_publix, :price_winn_dixie, :picture))
-      redirect_to @item, notice: 'Item was successfully updated.'
+    if @item.update(item_params)
+      redirect_to items_path, notice: 'Item was successfully updated.'
     else
       render :edit
     end
