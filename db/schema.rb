@@ -17,18 +17,18 @@ ActiveRecord::Schema.define(version: 20150706200214) do
   enable_extension "plpgsql"
 
   create_table "items", force: :cascade do |t|
-    t.integer  "price_publix"
-    t.integer  "price_winn_dixie"
-    t.string   "name"
-    t.string   "description"
-    t.string   "category"
+    t.integer  "Price_Publix"
+    t.integer  "Price_Winn_Dixie"
+    t.string   "Name"
+    t.string   "Description"
+    t.string   "Category"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
     t.string   "picture"
   end
 
   create_table "lists", force: :cascade do |t|
-    t.string   "name"
+    t.string   "Name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

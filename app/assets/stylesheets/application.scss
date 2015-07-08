@@ -1,0 +1,189 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+/***** RESET *****/
+
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, menu, nav, section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/**** END RESET ****/
+
+/**** VARIABLES ****/
+
+$light-green: #CACC52;
+$green: #979910;
+$blue: #37B5FF;
+$yellow: #FFE680;
+$light-gray: #f5f5f5;
+
+/**** END VARIABLES ****/
+
+body {
+  background-size: cover;
+  background-position: center top;
+  font-family: 'Droid Serif', serif;
+  background-image: image-url('shopping-cart.jpg');
+  background-repeat: no-repeat;
+}
+
+.page-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+header {
+  padding: 50px 0;
+
+  .header-container {
+    display: table;
+    width: 100%;
+    padding-bottom: 30px;
+    border-bottom: 1px solid #fff;
+
+    .logo-container {
+      display: table-cell;
+
+      .logo {
+        text-decoration: none;
+        font-size: 3em;
+        color: #fff;
+        text-shadow: 2px 2px 5px #555;
+      }
+    }
+
+    nav {
+      display: table-cell;
+
+      .nav {
+        text-align: right;
+
+        li {
+          display: inline-block;
+          margin: 0 25px;
+
+          a {
+            color: #fff;
+            font-size: 1.15em;
+            text-decoration: none;
+            transition: all 0.3s linear;
+            padding-bottom: 30px;
+
+            &:hover {
+              color: rgba(255, 255, 255, 0.5);
+              background-color: transparent;
+              border-bottom: 3px solid rgba(255, 255, 255, 0.5);
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+
+.tagline {
+  color: #fff;
+  text-align: center;
+  font-size: 5em;
+  margin-top: 250px;
+  text-shadow: 2px 2px 10px #333;
+
+  span {
+    font-style: italic;
+  }
+}
+
+.shopping-list-container {
+  display: flex;
+}
+
+.shopping-list {
+  background-color: rgba(255, 230, 128, 0.95);
+  background-image: url(http://www.transparenttextures.com/patterns/light-paper-fibers.png);
+  margin: 30px auto;
+  color: #555;
+  padding: 50px 20px;
+  font-family: courier, monospace;
+  box-shadow: 5px 5px 10px #555;
+  min-width: 400px;
+
+  li:first-of-type {
+    font-size: 2em;
+    text-align: center;
+    text-indent: 0;
+  }
+
+  li {
+    list-style: none;
+    border-bottom: 1px dotted #ccc;
+    text-indent: 25px;
+    height: auto;
+    padding: 10px;
+    text-transform: capitalize;
+  }
+}
