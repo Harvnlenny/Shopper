@@ -7,6 +7,16 @@ class ApplicationController < ActionController::Base
   helper_method :user_signed_in?
   helper_method :correct_user?
 
+  protected
+
+  def current_cart
+    @current_cart ||= Cart.find(session[:cart_id]) if session[:cart_id]
+  rescue ActiveRecord::RecordNotFound
+    session[:card_id] = nil
+    return nil
+  end
+  helper_method :current_cart
+
   private
     def current_user
       begin

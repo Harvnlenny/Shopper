@@ -11,24 +11,44 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150706200214) do
+ActiveRecord::Schema.define(version: 20150708160350) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "items", force: :cascade do |t|
-    t.integer  "Price_Publix"
-    t.integer  "Price_Winn_Dixie"
-    t.string   "Name"
-    t.string   "Description"
-    t.string   "Category"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
-    t.string   "picture"
+  create_table "carts", force: :cascade do |t|
+    t.integer  "total",      default: 0, null: false
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+    t.string   "name"
   end
 
+  create_table "items", force: :cascade do |t|
+    t.integer  "price_publix",     default: 0, null: false
+    t.integer  "price_winn_dixie", default: 0, null: false
+    t.string   "name"
+    t.string   "description"
+    t.string   "category"
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
+    t.string   "picture"
+    t.integer  "list_id"
+  end
+
+  create_table "line_items", force: :cascade do |t|
+    t.integer  "cart_id"
+    t.integer  "item_id"
+    t.integer  "quantity",   default: 0, null: false
+    t.integer  "subtotal",   default: 0, null: false
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+  add_index "line_items", ["cart_id"], name: "index_line_items_on_cart_id", using: :btree
+  add_index "line_items", ["item_id"], name: "index_line_items_on_item_id", using: :btree
+
   create_table "lists", force: :cascade do |t|
-    t.string   "Name"
+    t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -41,4 +61,6 @@ ActiveRecord::Schema.define(version: 20150706200214) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "line_items", "carts"
+  add_foreign_key "line_items", "items"
 end

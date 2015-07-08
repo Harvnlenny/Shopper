@@ -1,14 +1,22 @@
-<div class="Items"> 
+<p id="notice"><%= notice %></p>
+<div class="Items">
   <% @items.each do |item| %>
       <tr>
         <td><%= item.name %></td>
-        <td><%= format_money(item.price_publix) %></td>
+        <td>Publix Price:<%= format_money(item.price_publix) %></td>
+        <br>
+        <td>Winn Dixie Price:<%= format_money(item.price_winn_dixie) %></td>
         <td><%= link_to image_tag("#{item.picture.thumb}"), item %></td>
-      </tr>
-        
-
-       
-      
+        <%= form_for (item) do |f| %>
+            <div class="field">
+              <%= f.label :list_id %>
+              <%= f.collection_select(:list_id, List.all, :id, :name) %>
+            </div>
+            <div class="actions">
+              <%= f.submit %>
+            </div>
+        <% end %>
   <% end %>
-</div><!-- /.blog-post -->
+  </tr>
+</div>
 
