@@ -3,17 +3,21 @@
   <% @items.each do |item| %>
       <tr>
         <td><%= item.name %></td>
-        <td><%= format_money(item.price_publix) %></td>
+        <td>Publix Price:<%= format_money(item.price_publix) %></td><br>
+        <td>Winn Dixie Price:<%= format_money(item.price_winn_dixie) %></td>
         <td><%= link_to image_tag("#{item.picture.thumb}"), item %></td>
-        <td><%= form_tag("/cart", action: update_cart_path(@item), method: "patch") do %>
-          <input name="item_id" type="hidden" value=<%=item.id %> />
-          <button type="submit" class="btn btn-submit add-to-cart">Add to cart</button>
+        <%= form_for (item) do |f| %>
+          <div class="field">
+          <%= f.label :list_id %>
+          <%= f.collection_select(:list_id, List.all, :id, :name) %>
+          </div>
         <% end %>
+      <% end %>
       </tr>
         
 
        
       
-  <% end %>
+  
 </div><!-- /.blog-post -->
 
