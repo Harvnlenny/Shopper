@@ -98,53 +98,52 @@ body {
 
 header {
   padding: 50px 0;
+}
 
-  .header-container {
-    display: table;
-    width: 100%;
-    padding-bottom: 30px;
-    border-bottom: 1px solid #fff;
+.header-container {
+  display: table;
+  width: 100%;
+  padding-bottom: 30px;
+  border-bottom: 1px solid #fff;
+}
 
-    .logo-container {
-      display: table-cell;
+.logo-container {
+  display: table-cell;
+}
 
-      .logo {
-        text-decoration: none;
-        font-size: 3em;
-        color: #fff;
-        text-shadow: 2px 2px 5px #555;
-      }
-    }
+.logo {
+  text-decoration: none;
+  font-size: 3em;
+  color: #fff;
+  text-shadow: 2px 2px 5px #555;
+}
 
-    nav {
-      display: table-cell;
+nav {
+  display: table-cell;
+}
 
-      .nav {
-        text-align: right;
+.nav {
+  text-align: right;
 
-        li {
-          display: inline-block;
-          margin: 0 25px;
+  li {
+    display: inline-block;
+    margin: 0 25px;
 
-          a {
-            color: #fff;
-            font-size: 1.15em;
-            text-decoration: none;
-            transition: all 0.3s linear;
-            padding-bottom: 30px;
+    a {
+      color: #fff;
+      font-size: 1.15em;
+      text-decoration: none;
+      transition: all 0.3s linear;
+      padding-bottom: 30px;
 
-            &:hover {
-              color: rgba(255, 255, 255, 0.5);
-              background-color: transparent;
-              border-bottom: 3px solid rgba(255, 255, 255, 0.5);
-            }
-          }
-        }
+      &:hover {
+        color: rgba(255, 255, 255, 0.5);
+        background-color: transparent;
+        border-bottom: 3px solid rgba(255, 255, 255, 0.5);
       }
     }
   }
 }
-
 
 .tagline {
   color: #fff;
