@@ -80,6 +80,7 @@ $green: #979910;
 $blue: #37B5FF;
 $yellow: #FFE680;
 $light-gray: #f5f5f5;
+$font-color: rgba(255, 255, 255, 0.8);
 
 /**** END VARIABLES ****/
 
@@ -89,11 +90,14 @@ body {
   font-family: 'Droid Serif', serif;
   background-image: image-url('shopping-cart.jpg');
   background-repeat: no-repeat;
+  color: $font-color;
 }
 
 .page-container {
   max-width: 1200px;
   margin: 0 auto;
+  background-color: rgba(0, 0, 0, 0.5);
+  height: 1000px;
 }
 
 header {
@@ -104,7 +108,7 @@ header {
   display: table;
   width: 100%;
   padding-bottom: 30px;
-  border-bottom: 1px solid #fff;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
 }
 
 .logo-container {
@@ -113,9 +117,10 @@ header {
 
 .logo {
   text-decoration: none;
+  color: $font-color;
   font-size: 3em;
-  color: #fff;
   text-shadow: 2px 2px 5px #555;
+  margin-left: 30px;
 }
 
 nav {
@@ -130,11 +135,11 @@ nav {
     margin: 0 25px;
 
     a {
-      color: #fff;
       font-size: 1.15em;
       text-decoration: none;
       transition: all 0.3s linear;
       padding-bottom: 30px;
+      color: $font-color;
 
       &:hover {
         color: rgba(255, 255, 255, 0.5);
@@ -145,6 +150,24 @@ nav {
   }
 }
 
+.nav .sign-in-button {
+  padding: 10px 15px;
+  background: linear-gradient(rgba(46, 178, 46, 1), rgba(51, 198, 51, 1));
+  border-radius: 3px;
+  transition: 0.2s ease-out;
+
+  &:hover {
+    border-bottom: none;
+    color: #555;
+  }
+
+  &:active {
+    transform: translateY(1px)
+  }
+}
+
+
+/***** HOMEPAGE WITHOUT SIGN-IN *****/
 .tagline {
   color: #fff;
   text-align: center;
@@ -156,6 +179,9 @@ nav {
     font-style: italic;
   }
 }
+
+
+/****** LISTS INDEX PAGE/HOMEPAGE WITH SIGN-IN ******/
 
 .shopping-list-container {
   display: flex;
@@ -185,4 +211,26 @@ nav {
     padding: 10px;
     text-transform: capitalize;
   }
+}
+
+
+/****** ABOUT PAGE *****/
+
+.about-section {
+  margin: 0 auto;
+  max-width: 960px;
+  text-shadow: 1px 1px 1px #000;
+  color: #fff;
+
+  p {
+    line-height: 2;
+    font-size: 1.25em;
+    margin-bottom: 35px;
+  }
+}
+
+.about-heading {
+  text-align: center;
+  font-size: 3em;
+  margin-bottom: 50px;
 }
