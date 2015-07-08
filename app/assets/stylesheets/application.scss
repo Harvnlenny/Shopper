@@ -77,8 +77,10 @@ table {
 
 $light-green: rgba(51, 198, 51, 1);
 $green: rgba(46, 178, 46, 1);
-$font-color: rgba(255, 255, 255, 0.8);
 $link-blue: #0099FF;
+$font-color-white: rgba(255, 255, 255, 0.8);
+$light-gray: rgba(255, 255, 255, 0.5);
+$gray: #555;
 
 /**** END VARIABLES ****/
 
@@ -88,7 +90,7 @@ body {
   font-family: 'Droid Serif', serif;
   background-image: image-url('shopping-cart.jpg');
   background-repeat: no-repeat;
-  color: $font-color;
+  color: $font-color-white;
 }
 
 .page-container {
@@ -106,7 +108,7 @@ header {
   display: table;
   width: 100%;
   padding-bottom: 30px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+  border-bottom: 1px solid $light-gray;
 }
 
 .logo-container {
@@ -115,9 +117,9 @@ header {
 
 .logo {
   text-decoration: none;
-  color: $font-color;
+  color: $font-color-white;
   font-size: 3em;
-  text-shadow: 2px 2px 5px #555;
+  text-shadow: 2px 2px 5px $gray;
   margin-left: 30px;
 }
 
@@ -137,12 +139,12 @@ nav {
       text-decoration: none;
       transition: all 0.3s linear;
       padding-bottom: 30px;
-      color: $font-color;
+      color: $font-color-white;
 
       &:hover {
-        color: rgba(255, 255, 255, 0.5);
+        color: $light-gray;
         background-color: transparent;
-        border-bottom: 3px solid rgba(255, 255, 255, 0.5);
+        border-bottom: 3px solid $light-gray;
       }
     }
   }
@@ -157,7 +159,7 @@ nav {
 
   &:hover {
     border-bottom: none;
-    color: #555;
+    color: $gray;
   }
 
   &:active {
@@ -191,10 +193,10 @@ nav {
   background-color: rgba(255, 230, 128, 0.95);
   background-image: url(http://www.transparenttextures.com/patterns/light-paper-fibers.png);
   margin: 30px auto;
-  color: #555;
+  color: $gray;
   padding: 50px 20px;
   font-family: 'Delius', monospace;
-  box-shadow: 5px 5px 10px #555;
+  box-shadow: 5px 5px 10px $gray;
   min-width: 400px;
 
   li:first-of-type {
@@ -216,6 +218,11 @@ nav {
     a {
       text-decoration: none;
       color: $link-blue;
+      transition: 0.2s ease;
+
+      &:hover {
+        color: $gray;
+      }
     }
   }
 }
