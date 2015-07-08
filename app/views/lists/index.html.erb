@@ -1,4 +1,7 @@
 <section role="main" class="main-section">
+
+  <p id="notice"><%= notice %></p>
+
   <div class="shopping-list-container">
     <% @lists.limit(2).each do |list| %>
         <ul class="shopping-list">
@@ -18,7 +21,6 @@
   </div>
 </section>
 
-<p id="notice"><%= notice %></p>
 
-<%= link_to 'New List', new_list_path %>
+<%= link_to '+', new_list_path %>
 

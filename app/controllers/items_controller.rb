@@ -9,7 +9,7 @@ class ItemsController < ApplicationController
 
     respond_to do |format|
       if @item.save
-        format.html {redirect_to root_path, notice: 'Item was successfully created.' }
+        format.html {redirect_to lists_path, notice: 'Item was successfully created.' }
       else
         format.html { render :new } 
       end

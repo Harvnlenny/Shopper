@@ -111,6 +111,14 @@ header {
   border-bottom: 1px solid $light-gray;
 }
 
+#notice {
+  background: linear-gradient($green, $light-green);
+  color: $font-color-white;
+  padding: 10px 20px;
+}
+
+/**** LOGO *****/
+
 .logo-container {
   display: table-cell;
 }
@@ -122,6 +130,9 @@ header {
   text-shadow: 2px 2px 5px $gray;
   margin-left: 30px;
 }
+
+
+/***** NAV *****/
 
 nav {
   display: table-cell;
@@ -225,10 +236,6 @@ nav {
       }
     }
   }
-}
-
-.fa-square-o {
-  margin-right: 25px;
 }
 
 
