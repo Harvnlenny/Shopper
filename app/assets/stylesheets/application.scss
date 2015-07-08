@@ -78,6 +78,7 @@ table {
 $light-green: rgba(51, 198, 51, 1);
 $green: rgba(46, 178, 46, 1);
 $font-color: rgba(255, 255, 255, 0.8);
+$link-blue: #0099FF;
 
 /**** END VARIABLES ****/
 
@@ -207,6 +208,15 @@ nav {
     height: auto;
     padding: 10px;
     text-transform: capitalize;
+  }
+
+  li:last-of-type {
+    text-align: right;
+
+    a {
+      text-decoration: none;
+      color: $link-blue;
+    }
   }
 }
 
