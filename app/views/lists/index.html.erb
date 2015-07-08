@@ -1,6 +1,6 @@
 <section role="main" class="main-section">
   <div class="shopping-list-container">
-    <% @lists.each do |list| %>
+    <% @lists.limit(2).each do |list| %>
         <ul class="shopping-list">
           <li>
             <h1><%= list.name %></h1>
