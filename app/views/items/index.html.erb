@@ -1,9 +1,14 @@
+<p id="notice"><%= notice %></p>
 <div class="Items"> 
   <% @items.each do |item| %>
       <tr>
         <td><%= item.name %></td>
         <td><%= format_money(item.price_publix) %></td>
         <td><%= link_to image_tag("#{item.picture.thumb}"), item %></td>
+        <td><%= form_tag("/cart", action: update_cart_path(@item), method: "patch") do %>
+          <input name="item_id" type="hidden" value=<%=item.id %> />
+          <button type="submit" class="btn btn-submit add-to-cart">Add to cart</button>
+        <% end %>
       </tr>
         
 
