@@ -13,9 +13,9 @@
                         <span class="item-name"><%= "#{item.name}" %></span>
                         <span class="item-price">
                           <% if item.list.name == "Publix" %>
-                            <%= number_to_currency(item.price_publix) %>
+                            <%= format_money(item.price_publix) %>
                         <% elsif item.list.name == "Winn Dixie" %>
-                            <%= number_to_currency(item.price_winn_dixie) %>
+                            <%= format_money(item.price_winn_dixie) %>
                         <% end %>
                         </span>
                       </li>
