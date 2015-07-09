@@ -13,6 +13,8 @@ gem 'mini_magick'
 gem 'carrierwave'
 gem 'aws-sdk'
 gem 'kaminari'
+gem 'pg'
+
 group :development, :test do
   gem 'byebug'
   gem 'web-console', '~> 2.0'
@@ -21,7 +23,6 @@ end
 gem 'high_voltage'
 gem 'omniauth'
 gem 'omniauth-google-oauth2'
-gem 'pg'
 gem 'puma'
 group :development do
   gem 'better_errors'
