@@ -1,20 +1,37 @@
 <div class="item-container">
-  <% @items.each do |item| %>
+  <div class="items-show-container">
+    <table>
+      <thead>
       <tr>
-        <td><%= item.name %></td>
-        <td>Publix Price:<%= format_money(item.price_publix) %></td>
-        <td>Winn Dixie Price:<%= format_money(item.price_winn_dixie) %></td>
-        <td><%= link_to image_tag("#{item.picture.thumb}"), item %></td>
-        <%= form_for (item) do |f| %>
-            <div class="field">
-              <%= f.label :list_id %>
-              <%= f.collection_select(:list_id, List.all, :id, :name) %>
-            </div>
-            <div class="actions">
-              <%= f.button :submit %>
-            </div>
-        <% end %>
-  <% end %>
-  </tr>
+        <th>Item</th>
+        <th>Publix Price</th>
+        <th>Winn Dixie Price</th>
+        <th>Image</th>
+        <th>Store</th>
+      </tr>
+      </thead>
+      <tbody>
+      <% @items.each do |item| %>
+          <tr>
+            <td><%= item.name %></td>
+            <td><%= format_money(item.price_publix) %></td>
+            <td><%= format_money(item.price_winn_dixie) %></td>
+            <td><%= link_to image_tag("#{item.picture.thumb}"), item %></td>
+            <td>
+              <%= form_for (item) do |f| %>
+                  <span class="field">
+                    <%= f.label :list_id %>
+                    <%= f.collection_select(:list_id, List.all, :id, :name) %>
+                  </span>
+                  <span class="actions">
+                    <%= f.button :submit %>
+                  </span>
+              <% end %>
+            </td>
+          </tr>
+      <% end %>
+      </tbody>
+    </table>
+  </div>
 </div>
 
