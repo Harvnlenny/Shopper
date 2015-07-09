@@ -9,7 +9,12 @@
                     <h1><%= list.name %></h1>
                   </li>
                   <% list.items.each do |item| %>
-                      <li><%= "#{item.name}" %></li>
+                      <li><%= "#{item.name}" %>
+                      <% if item.list.name == "Publix" %>
+                        <%= "#{item.price_publix}" %></li>
+                      <% elsif item.list.name == "Winn Dixie" %>
+                        <%= "#{item.price_winn_dixie}" %></li>
+                      <% end %>
                   <% end %>
                   <li>
                     <%= link_to 'Show', list %> |
