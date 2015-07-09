@@ -19,9 +19,6 @@ class ListsController < ApplicationController
     @list = List.find(params[:id])
   end
 
-  def _form
-  end
-
   def index
     @lists = List.all
     if params[:search]
