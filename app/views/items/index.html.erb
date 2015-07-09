@@ -1,9 +1,8 @@
-<div class="Items">
+<div class="item-container">
   <% @items.each do |item| %>
       <tr>
         <td><%= item.name %></td>
         <td>Publix Price:<%= format_money(item.price_publix) %></td>
-        <br>
         <td>Winn Dixie Price:<%= format_money(item.price_winn_dixie) %></td>
         <td><%= link_to image_tag("#{item.picture.thumb}"), item %></td>
         <%= form_for (item) do |f| %>
