@@ -9,12 +9,16 @@
                     <h1><%= list.name %></h1>
                   </li>
                   <% list.items.each do |item| %>
-                      <li><%= "#{item.name}" %>
-                      <% if item.list.name == "Publix" %>
-                        <%= "#{item.price_publix}" %></li>
-                      <% elsif item.list.name == "Winn Dixie" %>
-                        <%= "#{item.price_winn_dixie}" %></li>
-                      <% end %>
+                      <li class="item-name-price-container">
+                        <span class="item-name"><%= "#{item.name}" %></span>
+                        <span class="item-price">
+                          <% if item.list.name == "Publix" %>
+                            <%= number_to_currency(item.price_publix) %>
+                        <% elsif item.list.name == "Winn Dixie" %>
+                            <%= number_to_currency(item.price_winn_dixie) %>
+                        <% end %>
+                        </span>
+                      </li>
                   <% end %>
                   <li>
                     <%= link_to 'Show', list %> |
