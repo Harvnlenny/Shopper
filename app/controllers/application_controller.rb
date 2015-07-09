@@ -47,13 +47,10 @@ class ApplicationController < ActionController::Base
       redirect_to root_url, :alert => 'You need to sign in for access to this page.'
     end
   end
-  #
-  # def flash_messages(opts = {})
-  #   flash.each do |msg_type, message|
-  #     concat(content_tag(:div, message, id: msg_type) do
-  #              concat message
-  #            end)
-  #   end
-  #   nil
-  # end
+
+  def flash_messages
+    flash.map do |key, msg|
+      content_tag :div, msg, :class => key
+    end.join.html_safe
+  end
 end
