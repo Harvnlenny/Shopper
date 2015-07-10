@@ -8,31 +8,23 @@
                   <li>
                     <h1><%= list.name %></h1>
                   </li>
-                  <% list.items.each do |item| %>
+                  <% current_user.list_items.where(:list => list).each do |item| %>
                       <li class="item-name-price-container">
                         <span class="item-name"><%= "#{item.name}" %></span>
                         <span class="item-price">
-                          <% if item.list.name == "Publix" %>
-                            <%= format_money(item.price_publix) %>
-                        <% elsif item.list.name == "Winn Dixie" %>
-                            <%= format_money(item.price_winn_dixie) %>
-                        <% end %>
+                          <%= format_money(item.price(list)) %>
                         </span>
+                        <span class="item-remove">
+                          <%= form_for(item, :method => 'delete', :confirm => 'Sure?') do |f| %>
+                            <button>&times;</button>
+                          <% end %>
+                        </span>   
                       </li>
                   <% end %>
-                  <li>Total</li>
-                  <li>
-                    <%= link_to 'Show', list %> |
-                    <%= link_to 'Edit', edit_list_path(list) %> |
-                    <%= link_to 'Destroy', list, method: :delete, data: {confirm: 'Are you sure?'} %>
-                  </li>
+                  <li>Total: <%= format_money current_user.list_items.where(:list => list).sum(:subtotal) %></li>
                 </ul>
             <% end %>
         <% end %>
       </div>
   <% end %>
 </section>
-
-
-<%= link_to '+', new_list_path %>
-

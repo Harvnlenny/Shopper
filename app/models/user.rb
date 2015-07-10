@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  has_many :list_items
+  has_many :items, :through => :list_items
 
   def self.create_with_omniauth(auth)
     create! do |user|
@@ -9,5 +11,4 @@ class User < ActiveRecord::Base
       end
     end
   end
-
 end

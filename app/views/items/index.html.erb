@@ -4,34 +4,34 @@
       <thead>
       <tr>
         <th>Item</th>
-        <th>Publix Price</th>
-        <th>Winn Dixie Price</th>
+        <% List.all.each do |list| %>
+        <th><%= list.name %></th>
+        <% end %>
         <th>Image</th>
-        <th>Store</th>
+        <th></th>
       </tr>
       </thead>
       <tbody>
       <% @items.each do |item| %>
-          <tr>
-            <td><%= item.name %></td>
-            <td><%= format_money(item.price_publix) %></td>
-            <td><%= format_money(item.price_winn_dixie) %></td>
-            <td><%= link_to image_tag("#{item.picture.thumb}"), item %></td>
-            <td>
-              <%= form_for (item) do |f| %>
-                  <span class="field">
-                    <%= f.label :list_id %>
-                    <%= f.collection_select(:list_id, List.all, :id, :name) %>
-                  </span>
-                  <span class="actions">
-                    <%= f.button :submit %>
-                  </span>
-              <% end %>
-            </td>
-          </tr>
+        <tr class="<%= row_class_for_item(item) %>">
+          <td><%= item.name %></td>
+          <% List.all.each do |list| %>
+          <td>
+            <%= form_for(list.list_items.new) do |f| %>
+              <%= f.hidden_field :list_id %>
+              <%= f.hidden_field :item_id, :value => item.id %>
+              <%= f.number_field :quantity, :value => 1 %>
+              <button class="<%= button_class_for_item(list, item) %>">
+                <%= format_money(item.price(list)) %>
+              </button>
+            <% end %>
+          </td>
+          <% end %>
+          <td><%= link_to image_tag("#{item.picture.thumb}"), item %></td>
+          <td>[PENCIL]</td>
+        </tr>
       <% end %>
       </tbody>
     </table>
   </div>
 </div>
-

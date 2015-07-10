@@ -1,39 +1,38 @@
 class ItemsController < ApplicationController
-  #before_action :set_item, only: [:show, :edit, :update, :destroy]
-  def new
-    @item = Item.new
-  end
+  before_action :set_item, only: [:show, :edit, :update, :destroy]
+  
+  # def new
+  #   @item = current_user.items.new
+  # end
 
-  def create
-    @item = Item.create(item_params)
+  # def create
+  #   @item = current_user.items.create(item_params)
 
-    respond_to do |format|
-      if @item.save
-        format.html {redirect_to lists_path, notice: 'Item was successfully created.' }
-      else
-        format.html { render :new } 
-      end
-    end
-  end
+  #   respond_to do |format|
+  #     if @item.save
+  #       format.html {redirect_to lists_path, notice: 'Item was successfully created.' }
+  #     else
+  #       format.html { render :new } 
+  #     end
+  #   end
+  # end
 
   def edit
-    @item = Item.find(params[:id])
   end
 
-  def destroy
-    @item = Item.find(params[:id])
-    @item.destroy
-    respond_to do |format|
-      format.html {redirect_to items_url, notice: 'Item was successfully destroyed.' }
-    end
-  end
+  # def destroy
+  #   @item.destroy
+  #   respond_to do |format|
+  #     format.html {redirect_to items_url, notice: 'Item was successfully destroyed.' }
+  #   end
+  # end
 
   def index
     @items = Item.order(:name)
+    quantity = params[:quantity]
   end
 
   def update
-    @item = Item.find(params[:id])
     if @item.update(item_params)
       redirect_to items_path, notice: 'Item was successfully updated.'
     else
@@ -41,14 +40,14 @@ class ItemsController < ApplicationController
     end
   end
 
-  def show
-    @item = Item.find(params[:id])
-  end
-
   private
 
-    def item_params
-      params.require(:item).permit(:description, :name, :category, :price_publix, :price_winn_dixie, :picture, :list_id)
-    end
+  def set_item
+    @item = current_user.items.find(params[:id])      
+  end    
+
+  def item_params
+    params.require(:item).permit(:price_publix, :price_winn_dixie)
   end
+end
 

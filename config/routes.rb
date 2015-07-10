@@ -1,16 +1,10 @@
 Rails.application.routes.draw do
-  
-  get 'carts/show'
 
-  get 'carts/update'
+  resources :items, :only => [:index, :show, :edit, :update]
+  resources :list_items, :only => [:create, :update, :destroy]
+  resources :lists, :only => [:index]
+  resources :users, :only => [:index, :show]
 
-  get 'carts/receipt'
-
-  resources :items
-  resources :lists
-  resources :users
-  resources :carts
-  patch '/cart', to: 'carts#update', as: 'update_cart'
   root to: 'visitors#index'
   get '/auth/:provider/callback' => 'sessions#create'
   get '/signin' => 'sessions#new', :as => :signin

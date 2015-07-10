@@ -1,3 +1,5 @@
 class List < ActiveRecord::Base
-  has_many :items
+  include ApplicationHelper
+  has_many :list_items
 end
+
