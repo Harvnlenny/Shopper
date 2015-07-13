@@ -1,13 +1,15 @@
 class ItemsController < ApplicationController
-  before_action :set_item, only: [:show, :create, :edit, :update, :destroy]
+  #before_action :set_item, only: [:show, :create, :edit, :update, :destroy]
+
+  def new
+    @item = Item.new
+  end
 
   def show
     @item = Item.find(params[:id])
   end
 
-  def new
-    @item = Item.new
-  end
+  
 
   def create
     @item = Item.create(item_params)
