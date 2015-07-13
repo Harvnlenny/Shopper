@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   resources :items, :only => [:index, :show, :edit, :update]
   resources :list_items, :only => [:create, :update, :destroy]
-  resources :lists, :only => [:index]
+  resources :lists
   resources :users, :only => [:index, :show]
 
   root to: 'visitors#index'

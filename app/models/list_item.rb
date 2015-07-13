@@ -11,4 +11,5 @@ class ListItem < ActiveRecord::Base
   def update_subtotal
     self.subtotal = quantity * price(list)
   end
+
 end
