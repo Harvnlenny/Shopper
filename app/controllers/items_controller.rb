@@ -1,6 +1,9 @@
 class ItemsController < ApplicationController
-  before_action :set_item, only: [:show, :edit, :update, :destroy]
+  #before_action :set_item, only: [:show, :edit, :update, :destroy]
   
+    def show
+      @item = Item.find(params[:id])
+    end
   # def new
   #   @item = current_user.items.new
   # end
@@ -18,6 +21,7 @@ class ItemsController < ApplicationController
   # end
 
   def edit
+    @item = Item.find(params[:id])
   end
 
   # def destroy
@@ -47,7 +51,7 @@ class ItemsController < ApplicationController
   end    
 
   def item_params
-    params.require(:item).permit(:price_publix, :price_winn_dixie)
+    params.require(:item).permit(:price_publix, :price_winn_dixie, :description, :name, :category, :picture, :list_id)
   end
 end
 
