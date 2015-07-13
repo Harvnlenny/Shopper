@@ -45,7 +45,7 @@ class ListItemsController < ApplicationController
   def destroy
     @list_item.destroy
     respond_to do |format|
-      format.html { redirect_to :back, notice: 'List item was successfully destroyed.' }
+      format.html { redirect_to :back, notice: 'List item was successfully removed.' }
       format.json { head :no_content }
     end
   end

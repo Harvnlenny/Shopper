@@ -9,7 +9,6 @@ class ApplicationController < ActionController::Base
   helper_method :current_user
   helper_method :user_signed_in?
   helper_method :correct_user?
-  helper_method :flash_messages
 
   protected
 
@@ -46,11 +45,5 @@ class ApplicationController < ActionController::Base
     if !current_user
       redirect_to root_url, :alert => 'You need to sign in for access to this page.'
     end
-  end
-
-  def flash_messages
-    flash.map do |key, msg|
-      content_tag :div, msg, :class => key
-    end.join.html_safe
   end
 end

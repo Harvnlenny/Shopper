@@ -10,4 +10,10 @@ module ApplicationHelper
   def row_class_for_item(item)
     current_user.items.include?(item) ? 'added' : 'not-added'
   end
+
+    def flash_messages
+    flash.map do |key, msg|
+      content_tag :div, msg, :class => key
+    end.join.html_safe
+  end
 end
