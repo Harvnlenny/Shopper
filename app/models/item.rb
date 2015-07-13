@@ -14,8 +14,8 @@ class Item < ActiveRecord::Base
     return true if price_winn_dixie <= price_publix && list.name == "Winn Dixie"
   end
 
-  def savings
-    if list.name == price_winn_dixie
+  def savings(list)
+    if list.name == "Winn Dixie"
       savings = price_publix - price_winn_dixie
     else
       savings = price_winn_dixie - price_publix

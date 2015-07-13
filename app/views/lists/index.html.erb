@@ -29,7 +29,7 @@
                 <% end %>
                 <tr>
                   <td colspan="3" class="total-cell">Total: <%= format_money current_user.list_items.where(:list => list).sum(:subtotal) %></td>
-                  <td colspan="3" class="total-cell"> Savings:</td>
+                  <td colspan="3" class="total-cell"> Savings: <%= format_money current_user.list_items.where(:list => list).sum(:savings) %></td>
                 </tr>
                 </tbody>
               </table>
