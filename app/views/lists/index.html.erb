@@ -11,10 +11,10 @@
                 <tbody>
                 <% current_user.list_items.where(:list => list).includes(:item).order('items.name ASC').each do |item| %>
                     <tr class="item-name-price-container">
-                      <td class="item-name">
-                        <input type="checkbox" id="completed-item-checkbox"/>
-                        <label for="completed-item-checkbox"><i class="fa fa-square-o"></i></label>
-                        <%= "#{item.name}" %>
+                      <td class="item-name-td">
+                        <input type="checkbox" id="completed-item-checkbox<%= dom_id(item) %>" class="item-checkbox"/>
+                        <label for="completed-item-checkbox<%= dom_id(item) %>"><i class="fa fa-square-o"></i></label>
+                        <span class="item-name"><%= "#{item.name}" %></span>
                       </td>
                       <td class="item-price">
                         <%= format_money(item.price(list)) %>
@@ -27,18 +27,15 @@
                       </td>
                     </tr>
                 <% end %>
-                
                 <tr>
                   <td colspan="3" class="total-cell">Total: <%= format_money current_user.list_items.where(:list => list).sum(:subtotal) %></td>
-                  <td colspan="3" class="total-cell"> Savings: </td>
+                  <td colspan="3" class="total-cell"> Savings:</td>
                 </tr>
                 </tbody>
               </table>
           <% end %>
       <% end %>
-
     </div>
-
 <% end %>
 
 <%= link_to '+', new_list_path %>

@@ -244,6 +244,10 @@ nav {
   }
 }
 
+.item-name {
+  margin-left: 10px;
+}
+
 .item-price {
   text-align: right;
 }
@@ -255,10 +259,27 @@ nav {
 .remove-button-label {
   color: $red;
   font-size: 2em;
+
+  &:focus,
+  &:hover {
+    cursor: pointer;
+  }
 }
 
-.item-remove-button {
+.item-remove-button,
+.item-checkbox {
   @extend %visuallyhidden;
+}
+
+.item-strikethrough {
+  text-decoration: line-through;
+  font-style: italic;
+  color: #777;
+}
+
+.checkbox-active:before {
+  content: '\f046';
+  color: $green;
 }
 
 .shopping-list .total-cell {

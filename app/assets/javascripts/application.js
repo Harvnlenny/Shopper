@@ -18,7 +18,13 @@
 // Error messages fade-in/fade-out
 
 $(function() {
-  $('.notice').delay(500).fadeIn('normal', function() {
-    $(this).delay(2500).fadeOut();
-  });
+    $('.notice').delay(500).fadeIn('normal', function() {
+        $(this).delay(2500).fadeOut();
+    });
+
+    $(".item-name-price-container, .fa-square-o").on('click', function () {
+        $('.fa-square-o').toggleClass('checkbox-active');
+        $('.item-name').toggleClass('item-strikethrough');
+    });
 });
+
