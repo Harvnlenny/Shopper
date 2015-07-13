@@ -15,8 +15,12 @@
 //= require turbolinks
 //= require_tree .
 
-//$(function() {
-//    $('.notice').delay(500).fadeIn('normal', function() {
-//        $(this).delay(2500).fadeOut();
-//    });
-//});
+// Error messages fade-in/fade-out
+
+$(function() {
+    $('.notice').delay(500).fadeIn('normal', function() {
+        $(this).delay(2500).fadeOut();
+    });
+
+    $('.')
+});

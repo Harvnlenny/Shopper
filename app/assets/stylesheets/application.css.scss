@@ -81,6 +81,18 @@ $link-blue: #0099FF;
 $font-color-white: rgba(255, 255, 255, 0.8);
 $light-gray: rgba(255, 255, 255, 0.5);
 $gray: #555;
+$red: #E60000;
+
+%visuallyhidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
 
 /**** END VARIABLES ****/
 
@@ -131,7 +143,6 @@ header {
   margin-left: 30px;
 }
 
-
 /***** NAV *****/
 
 nav {
@@ -178,7 +189,6 @@ nav {
   }
 }
 
-
 /***** HOMEPAGE WITHOUT SIGN-IN *****/
 
 .tagline {
@@ -192,7 +202,6 @@ nav {
     font-style: italic;
   }
 }
-
 
 /****** LISTS INDEX PAGE/HOMEPAGE WITH SIGN-IN ******/
 
@@ -210,39 +219,44 @@ nav {
   box-shadow: 5px 5px 10px $gray;
   min-width: 400px;
 
-  li:first-of-type {
+  th {
     font-size: 2em;
     text-align: center;
+    padding: 20px 0;
   }
 
-  li {
+  tr {
     list-style: none;
     border-bottom: 1px dotted #ccc;
-    height: auto;
-    padding: 10px;
-    text-transform: capitalize;
-  }
 
-  li:last-of-type {
-    text-align: right;
-
-    a {
-      text-decoration: none;
-      color: $link-blue;
-      transition: 0.2s ease;
-
-      &:hover {
-        color: $gray;
-      }
+    td {
+      vertical-align: middle;
+      padding: 0 20px;
     }
   }
 }
 
-.item-name-price-container {
-  display: flex;
-  justify-content: space-between;
+.item-price {
+  text-align: right;
 }
 
+.item-remove {
+  text-align: right;
+}
+
+.remove-button-label {
+  color: $red;
+  font-size: 2em;
+}
+
+.item-remove-button {
+  @extend %visuallyhidden;
+}
+
+.shopping-list .total-cell {
+  padding: 20px 20px 10px 0;
+  text-align: right;
+}
 
 /****** ABOUT PAGE *****/
 
@@ -265,8 +279,7 @@ nav {
   margin-bottom: 50px;
 }
 
-
-/**** ITEMS INDEX PAGE *****/
+/**** ITEMS INDEX PAGE ****/
 
 .items-show-container {
   background-color: rgba(255, 255, 255, 1);
@@ -291,4 +304,16 @@ nav {
     text-align: center;
     vertical-align: middle;
   }
+}
+
+button.lowest {
+  background-color: #6C6;
+}
+
+button.not-lowest {
+  background-color: #999;
+}
+
+.item-container tr.added {
+  opacity: .25;
 }
