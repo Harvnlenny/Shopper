@@ -22,6 +22,7 @@
                       </li>
                   <% end %>
                   <li>Total: <%= format_money current_user.list_items.where(:list => list).sum(:subtotal) %></li>
+                  <li><%= link_to 'Destroy', list, method: :delete, data: {confirm: 'Are you sure?'} %></li>
                 </ul>
             <% end %>
         <% end %>
