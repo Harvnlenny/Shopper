@@ -21,7 +21,7 @@
                       </td>
                       <td class="item-remove">
                         <%= form_for(item, :method => 'delete', :confirm => 'Sure?') do |f| %>
-                            <label for="remove-<%= dom_id(item) %>" class="remove-button-label">&times;</label>
+                            <label for="remove-<%= dom_id(item) %>" class="remove-button-label" title="Remove Item">&times;</label>
                             <button class="item-remove-button" id="remove-<%= dom_id(item) %>"></button>
                         <% end %>
                       </td>

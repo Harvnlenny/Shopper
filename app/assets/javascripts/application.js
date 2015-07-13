@@ -22,9 +22,13 @@ $(function() {
         $(this).delay(2500).fadeOut();
     });
 
-    $(".item-name-price-container, .fa-square-o").on('click', function () {
-        $('.fa-square-o').toggleClass('checkbox-active');
-        $('.item-name').toggleClass('item-strikethrough');
+    $(".item-name-price-container").on('click', '*', function (event) {
+        event.stopPropagation();
+        $row = $(event.target).parents("tr.item-name-price-container");
+        // TODO: Do ajax request to update list item as complete
+        // on success for that, do these two lines:
+        $('.fa-square-o', $row).toggleClass('checkbox-active');
+        $('.item-name, .item-price', $row).toggleClass('item-strikethrough');
     });
 });
 
