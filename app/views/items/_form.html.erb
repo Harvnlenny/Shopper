@@ -29,10 +29,7 @@
     <%= f.file_field :picture %>
   </div>
 
-  <div class="field">
-    <%= f.label :store %>
-    <%= f.collection_select(:list_id, List.all, :id, :name) %>
-  </div>
+  
 
   <div class="actions">
     <%= f.button :submit %>
