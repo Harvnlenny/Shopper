@@ -1,24 +1,25 @@
 class ItemsController < ApplicationController
-  #before_action :set_item, only: [:show, :edit, :update, :destroy]
-  
-    def show
-      @item = Item.find(params[:id])
+  before_action :set_item, only: [:show, :create, :edit, :update, :destroy]
+
+  def show
+    @item = Item.find(params[:id])
+  end
+
+  def new
+    @item = Item.new
+  end
+
+  def create
+    @item = Item.create(item_params)
+
+    respond_to do |format|
+      if @item.save
+        format.html { redirect_to lists_path, notice: 'Item was successfully created.' }
+      else
+        format.html { render :new }
+      end
     end
-  # def new
-  #   @item = current_user.items.new
-  # end
-
-  # def create
-  #   @item = current_user.items.create(item_params)
-
-  #   respond_to do |format|
-  #     if @item.save
-  #       format.html {redirect_to lists_path, notice: 'Item was successfully created.' }
-  #     else
-  #       format.html { render :new } 
-  #     end
-  #   end
-  # end
+  end
 
   def edit
     @item = Item.find(params[:id])
@@ -48,8 +49,8 @@ class ItemsController < ApplicationController
   private
 
   def set_item
-    @item = current_user.items.find(params[:id])      
-  end    
+    @item = Item.find(params[:id])
+  end
 
   def item_params
     params.require(:item).permit(:price_publix, :price_winn_dixie, :description, :name, :category, :picture, :list_id)
