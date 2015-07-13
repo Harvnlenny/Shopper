@@ -305,6 +305,10 @@ nav {
     padding: 20px 0;
   }
 
+  td {
+    border-bottom: 1px dashed rgba(0,0,0,0.1);
+  }
+
   th,
   td {
     border-right: 1px solid $gray;
@@ -315,7 +319,8 @@ nav {
 }
 
 button.lowest {
-  background-color: #6C6;
+  background: linear-gradient($green, $light-green);
+  border: 1px solid $green;
 }
 
 button.not-lowest {
@@ -324,4 +329,44 @@ button.not-lowest {
 
 .item-container tr.added {
   opacity: .25;
+}
+
+.fa-pencil {
+  padding: 20px;
+  color: $gray;
+
+  &:hover {
+    color: $link-blue;
+  }
+}
+
+#list_item_quantity {
+  max-width: 35px;
+  padding: 5px;
+  border-radius: 2px;
+  border: 1px solid rgba(0,0,0,0.5);
+  margin-right: 10px;
+  font-size: 1em;
+}
+
+.new_list_item button {
+  color: #333;
+  border-radius: 2px;
+  border: none;
+  padding: 5px;
+  font-family: 'Delius', sans-serif;
+  font-size: 1em;
+  box-shadow: 2px 2px 2px $gray;
+
+  &:hover {
+    color: $font-color-white;
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  &:active {
+    transform: translateY(1px)
+  }
 }
