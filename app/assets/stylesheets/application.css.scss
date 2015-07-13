@@ -215,6 +215,7 @@ nav {
 
 .shopping-list-container {
   display: flex;
+  flex-wrap: wrap;
 }
 
 .shopping-list {
@@ -225,7 +226,6 @@ nav {
   padding: 50px 20px;
   font-family: 'Delius', sans-serif;
   box-shadow: 5px 5px 10px $gray;
-  min-width: 400px;
 
   th {
     font-size: 2em;
@@ -279,6 +279,7 @@ nav {
 
 .checkbox-active:before {
   content: '\f046';
+  color: #777;
 }
 
 .shopping-list .total-cell,
@@ -328,7 +329,7 @@ nav {
   }
 
   th {
-    border-bottom: 1px solid $gray;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
     padding: 20px 0;
   }
 
@@ -339,10 +340,14 @@ nav {
 
   th,
   td {
-    border-right: 1px solid $gray;
+    border-right: 1px solid rgba(0, 0, 0, 0.2);
     width: 25%;
     text-align: center;
     vertical-align: middle;
+
+    &:last-of-type {
+      border-right: none;
+    }
   }
 }
 
