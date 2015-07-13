@@ -8,8 +8,11 @@ class ListItem < ActiveRecord::Base
 
   before_save :update_subtotal
 
+
   def update_subtotal
     self.subtotal = quantity * price(list)
   end
+  
+  
 
 end
