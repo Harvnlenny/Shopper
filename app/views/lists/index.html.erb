@@ -9,7 +9,7 @@
                 </tr>
                 </thead>
                 <tbody>
-                <% current_user.list_items.where(:list => list).each do |item| %>
+                <% current_user.list_items.where(:list => list).includes(:item).order('items.name ASC').each do |item| %>
                     <tr class="item-name-price-container">
                       <td class="item-name">
                         <input type="checkbox" id="completed-item-checkbox"/>
