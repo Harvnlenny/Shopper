@@ -33,8 +33,10 @@
                 </tr>
                 </tbody>
               </table>
+
           <% end %>
       <% end %>
+      <p> Total Savings: <%= format_money current_user.list_items.sum(:savings) %> </p>
     </div>
 <% end %>
 
