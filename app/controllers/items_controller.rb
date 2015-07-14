@@ -39,7 +39,7 @@ class ItemsController < ApplicationController
     if params[:word]
       @items = Item.search(params[:word])
     else
-      @items = Item.order(:name)
+      @items = Item.page(params[:page]).per(12).order(:name)
     end
   end
 
