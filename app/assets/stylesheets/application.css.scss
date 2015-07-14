@@ -162,6 +162,10 @@ header {
 
 nav {
   display: table-cell;
+
+  @media #{$mid-width-mq} {
+    display: block;
+  }
 }
 
 .nav {
@@ -183,6 +187,10 @@ li {
     transition: all 0.3s linear;
     padding-bottom: 30px;
     color: $font-color-white;
+
+    @media #{$mid-width-mq} {
+      color: $gray;
+    }
 
     &:hover {
       color: $light-gray;
