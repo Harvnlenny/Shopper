@@ -1,5 +1,7 @@
 <% @lists.in_groups_of(2) do |lists| %>
-    <p> Total Savings: <%= format_money current_user.list_items.sum(:savings) %> </p>
+    <div id="ribbon-container">
+      <span>Savings: <%= format_money current_user.list_items.sum(:savings) %></span>
+    </div>
     <div class="shopping-list-container">
       <% lists.each do |list| %>
           <% if list %>

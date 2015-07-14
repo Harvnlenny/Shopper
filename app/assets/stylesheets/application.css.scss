@@ -124,10 +124,12 @@ body {
 }
 
 main {
+  padding: 50px 0;
   position: relative;
 }
 
 .page-container {
+  position: relative;
   max-width: 1200px;
   margin: 0 auto;
   background-color: rgba(0, 0, 0, 0.5);
@@ -145,6 +147,11 @@ main {
 
 .logo-container {
   display: table-cell;
+
+  @media #{$mid-width-mq} {
+    display: block;
+    text-align: center;
+  }
 }
 
 .logo {
@@ -330,7 +337,6 @@ li {
   color: $font-color-white;
   padding: 10px 20px;
   width: 100%;
-  top: -250px;
   box-sizing: border-box;
 }
 
@@ -350,9 +356,91 @@ li {
 
 /****** LISTS INDEX PAGE/HOMEPAGE WITH SIGN-IN ******/
 
+  /**** ribbon *****/
+
+#ribbon-container {
+  position: absolute;
+  top: 15px;
+  right: -15px;
+  overflow: visible;
+  /* so we can see the pseudo-elements we're going to add to the anchor */
+
+  font-size: 1.5em;
+  /* font-size and line-height must be equal so we can account for the height of the banner */
+}
+
+#ribbon-container:before {
+  content: "";
+  height: 0;
+  width: 0;
+  display: block;
+  position: absolute;
+  top: 3px;
+  left: 0;
+  border-top: 29px solid rgba(0, 0, 0, .3);
+  /* These 4 border properties create the first part of our drop-shadow */
+
+  border-bottom: 29px solid rgba(0, 0, 0, .3);
+  border-right: 29px solid rgba(0, 0, 0, .3);
+  border-left: 29px solid transparent;
+}
+
+#ribbon-container:after {
+  /* This adds the second part of our dropshadow */
+
+  content: "";
+  height: 3px;
+  background: rgba(0, 0, 0, .3);
+  display: block;
+  position: absolute;
+  bottom: -3px;
+  left: 58px;
+  right: 3px;
+}
+
+#ribbon-container span {
+  display: block;
+  padding: 17px;
+  position: relative;
+  background-color: $light-green;
+  overflow: visible;
+  margin-left: 29px;
+  color: #fff;
+  text-shadow: 1px 1px 1px $gray;
+  text-decoration: none;
+}
+
+#ribbon-container span:after {
+  content: "";
+  height: 0;
+  width: 0;
+  display: block;
+  position: absolute;
+  bottom: -15px;
+  right: 0;
+  border-top: 15px solid #004a70;
+  border-right: 15px solid transparent;
+}
+
+#ribbon-container span:before {
+  content: "";
+  height: 0;
+  width: 0;
+  display: block;
+  position: absolute;
+  top: 0;
+  left: -29px;
+  border-top: 29px solid $light-green;
+  border-bottom: 29px solid $light-green;
+  border-right: 29px solid transparent;
+  border-left: 29px solid transparent;
+}
+
+
 .shopping-list-container {
   display: flex;
   flex-wrap: wrap;
+  margin-top: 50px;
 }
 
 .shopping-list {
@@ -363,6 +451,12 @@ li {
   padding: 50px 20px;
   font-family: 'Delius', sans-serif;
   box-shadow: 5px 5px 10px $gray;
+  min-width: 400px;
+
+  @media #{$mobile-width-mq} {
+    min-width: 320px;
+    width: 100%;
+  }
 
   th {
     font-size: 2em;

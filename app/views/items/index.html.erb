@@ -19,7 +19,7 @@
             <%= form_for(list.list_items.new) do |f| %>
               <%= f.hidden_field :list_id %>
               <%= f.hidden_field :item_id, :value => item.id %>
-              <%= f.number_field :quantity, :value => 1 %>
+              <%= f.number_field :quantity, :value => 1, min: 1 %>
               <button class="<%= button_class_for_item(list, item) %>">
                 <%= format_money(item.price(list)) %>
               </button>
