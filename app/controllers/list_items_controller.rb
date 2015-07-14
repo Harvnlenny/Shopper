@@ -13,7 +13,13 @@ class ListItemsController < ApplicationController
   # POST /list_items
   # POST /list_items.json
   def create
-    @list_item = current_user.list_items.new(list_item_params)
+    @list_item = current_user.list_items.find_by(:list_id => list_item_params[:list_id], :item_id => list_item_params[:item_id])
+
+    if @list_item
+      @list_item.quantity += list_item_params[:quantity].to_i
+    else
+      @list_item = current_user.list_items.new(list_item_params)
+    end
 
     respond_to do |format|
       if @list_item.save
