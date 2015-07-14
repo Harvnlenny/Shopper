@@ -1,3 +1,9 @@
+<div>
+  <%= form_tag("/items", method: "get", class: "search-box-form") do %>
+      <%= text_field_tag :word, nil, placeholder: 'Search Items', class: 'search-box' %>
+      <button type="submit" class="search-button"><i class="fa fa-search fa-2x"></i></button>
+  <% end %>
+</div>
 <div class="item-container">
   <div class="items-show-container">
     <table>
@@ -30,11 +36,6 @@
           <td><%= link_to '<i class="fa fa-pencil"></i>'.html_safe, edit_item_path(item) %></td>
         </tr>
       <% end %>
-        <li><%= form_tag("/items", method: "get") do %>
-        <%= label_tag(:word, "Search for:") %>
-        <%= text_field_tag(:word) %>
-        <%= submit_tag("Search") %>
-      <% end %></li>
       </tbody>
     </table>
     <%= paginate @items, :window => 2 %>

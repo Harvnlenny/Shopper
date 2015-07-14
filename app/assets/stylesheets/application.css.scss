@@ -166,6 +166,7 @@ main {
 
 nav {
   display: table-cell;
+  margin-right: 30px;
 
   @media #{$mid-width-mq} {
     display: block;
@@ -547,6 +548,36 @@ li {
 }
 
 /**** ITEMS INDEX PAGE ****/
+
+.search-box-form {
+  display: flex;
+  justify-content: flex-end;
+  padding: 0 50px 20px 0;
+}
+
+.search-box {
+  width: 250px;
+  padding: 5px;
+  border-radius: 3px;
+  border: none;
+  background: $font-color-white;
+  margin-right: 10px;
+}
+
+.search-button {
+  background-color: transparent;
+  border: none;
+  color: $link-blue;
+  cursor: pointer;
+
+  &:hover {
+    color: $green;
+  }
+
+  &:focus {
+    outline: none;
+  }
+}
 
 .items-show-container {
   background-color: rgba(255, 255, 255, 1);
