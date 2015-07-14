@@ -14,8 +14,17 @@
 <div class="page-container">
   <header>
     <div class="header-container">
-      <%= render 'layouts/logo' %>
-      <%= render 'layouts/navigation' %>
+      <div class="logo-container">
+        <%= render 'layouts/logo' %>
+      </div>
+      <div class="nav-container">
+        <%= render 'layouts/navigation' %>
+        <button class="mobile-menu-trigger">
+          <span class="mobile-menu-trigger-text-wrapper">
+            <span class="mobile-menu-trigger-text">Click to open the mobile menu</span>
+          </span>
+        </button>
+      </div>
     </div>
   </header>
   <main role="main">

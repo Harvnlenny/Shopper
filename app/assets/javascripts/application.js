@@ -18,6 +18,10 @@
 // Error messages fade-in/fade-out
 
 $(function() {
+    $('.mobile-menu-trigger').on('click', function () {
+        $('.nav-container').toggleClass('mobile-menu-active');
+    });
+
     $('.notice').delay(500).fadeIn('normal', function() {
         $(this).delay(2500).fadeOut();
     });
