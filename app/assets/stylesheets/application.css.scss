@@ -134,14 +134,11 @@ main {
   min-height: 1000px;
 }
 
-header {
-  padding: 50px 0;
-}
-
 .header-container {
   display: table;
   width: 100%;
   border-bottom: 1px solid $light-gray;
+  padding: 50px 0;
 }
 
 /**** LOGO *****/
@@ -169,9 +166,7 @@ nav {
 }
 
 .nav {
-  text-align: right;
   display: flex;
-  justify-content: flex-end;
 
   @media #{$mid-width-mq} {
     display: block;
@@ -218,18 +213,23 @@ li {
 }
 
 .nav-container {
-  position: fixed;
-  background-color: #fff;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  padding: 80px 60px 50px 0;
-  transform: translate3d(0, 100%, 0);
-  transition: transform .5s ease-in-out;
-  z-index: 1;
+  display: flex;
+  justify-content: flex-end;
 
-  &.mobile-menu-active {
-    transform: translate3d(0, 0, 0);
+  @media #{$mid-width-mq} {
+    position: fixed;
+    background-color: #fff;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    padding: 80px 60px 50px 0;
+    transform: translate3d(0, 100%, 0);
+    transition: transform .5s ease-in-out;
+    z-index: 1;
+
+    &.mobile-menu-active {
+      transform: translate3d(0, 0, 0);
+    }
   }
 }
 
