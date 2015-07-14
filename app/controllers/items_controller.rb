@@ -37,7 +37,7 @@ class ItemsController < ApplicationController
   def index
     quantity = params[:quantity]
     if params[:word]
-      @items = Item.search(params[:word])
+      @items = Item.page(params[:page]).per(12).search(params[:word])
     else
       @items = Item.page(params[:page]).per(12).order(:name)
     end
