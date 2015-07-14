@@ -20,5 +20,9 @@ class Item < ActiveRecord::Base
     else
       savings = price_winn_dixie - price_publix
     end
+  end
+
+  def self.search(word)
+    where (["LOWER(name) LIKE ?", "%#{word.downcase}%"])
   end 
 end

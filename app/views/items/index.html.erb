@@ -30,6 +30,11 @@
           <td><%= link_to '<i class="fa fa-pencil"></i>'.html_safe, edit_item_path(item) %></td>
         </tr>
       <% end %>
+        <li><%= form_tag("/items", method: "get") do %>
+        <%= label_tag(:word, "Search for:") %>
+        <%= text_field_tag(:word) %>
+        <%= submit_tag("Search") %>
+      <% end %></li>
       </tbody>
     </table>
   </div>

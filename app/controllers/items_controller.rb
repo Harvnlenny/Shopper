@@ -35,8 +35,16 @@ class ItemsController < ApplicationController
   # end
 
   def index
-    @items = Item.order(:name)
     quantity = params[:quantity]
+    if params[:word]
+      @items = Item.search(params[:word])
+    else
+      @items = Item.order(:name)
+    end
+  end
+
+  def search
+    @items = Item.search(params[:word])
   end
 
   def update
