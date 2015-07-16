@@ -82,6 +82,8 @@ $font-color-white: rgba(255, 255, 255, 0.8);
 $light-gray: rgba(255, 255, 255, 0.5);
 $gray: #555;
 $red: #E60000;
+$sans-serif: 'Source Sans Pro', sans-serif;
+$serif: 'Alegreya', serif;
 
 %visuallyhidden {
   border: 0;
@@ -117,7 +119,7 @@ $mobile-width-mq: '(max-width: 640px)';
 body {
   background-size: cover;
   background-position: center top;
-  font-family: 'Droid Serif', serif;
+  font-family: $serif;
   background-image: image-url('shopping-cart.jpg');
   background-repeat: no-repeat;
   color: $font-color-white;
@@ -134,6 +136,10 @@ main {
   margin: 0 auto;
   background-color: rgba(0, 0, 0, 0.5);
   min-height: 1000px;
+
+  @media #{$mobile-width-mq} {
+    min-height: 0;
+  }
 }
 
 .header-container {
@@ -200,24 +206,12 @@ li {
       color: $light-gray;
       background-color: transparent;
       border-bottom: 3px solid $light-gray;
+
+      @media #{$mid-width-mq} {
+        border-bottom: none;
+        color: $light-green;
+      }
     }
-  }
-}
-
-.nav .sign-in-button,
-.nav .lists-button {
-  padding: 10px 15px;
-  background: linear-gradient($green, $light-green);
-  border-radius: 3px;
-  transition: 0.2s ease-out;
-
-  &:hover {
-    border-bottom: none;
-    color: $gray;
-  }
-
-  &:active {
-    transform: translateY(2px)
   }
 }
 
@@ -351,6 +345,11 @@ li {
   margin-top: 250px;
   text-shadow: 2px 2px 10px #333;
 
+  @media #{$mobile-width-mq} {
+    margin: 150px 0;
+    font-size: 2.5em;
+  }
+
   span {
     font-style: italic;
   }
@@ -402,7 +401,7 @@ li {
 
 #ribbon-container span {
   display: block;
-  padding: 17px;
+  padding: 17px 30px 17px 17px;
   position: relative;
   background-color: $light-green;
   overflow: visible;
@@ -451,7 +450,7 @@ li {
   margin: 30px auto;
   color: $gray;
   padding: 50px 20px;
-  font-family: 'Delius', sans-serif;
+  font-family: $sans-serif;
   box-shadow: 5px 5px 10px $gray;
   min-width: 400px;
 
@@ -585,7 +584,7 @@ li {
   padding: 20px;
   margin: 10px 0;
   color: #555;
-  font-family: 'Delius', sans-serif;
+  font-family: $sans-serif;
 
   table {
     width: 100%;
@@ -651,7 +650,7 @@ button.not-lowest {
   border-radius: 2px;
   border: none;
   padding: 5px;
-  font-family: 'Delius', sans-serif;
+  font-family: $sans-serif;
   font-size: 1em;
   box-shadow: 2px 2px 2px $gray;
   transition: 0.2s ease-out;
