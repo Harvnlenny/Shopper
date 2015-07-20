@@ -131,7 +131,6 @@ main {
 
   @media #{$mid-width-mq} {
     overflow: hidden;
-    padding: 20px 0;
   }
 }
 
@@ -340,11 +339,16 @@ li {
 
 .notice {
   position: absolute;
-  background: linear-gradient($green, $light-green);
+  background: linear-gradient($gray, $light-gray);
   color: $font-color-white;
-  padding: 10px 20px;
+  padding: 10px 50px;
   width: 100%;
   box-sizing: border-box;
+  font-size: 1.25em;
+
+  @media #{$mid-width-mq} {
+    font-size: 1em;
+  }
 }
 
 /***** HOMEPAGE WITHOUT SIGN-IN *****/
@@ -372,7 +376,7 @@ li {
 
 #ribbon-container {
   position: absolute;
-  top: 15px;
+  top: 50px;
   right: -15px;
   overflow: visible;
   /* so we can see the pseudo-elements we're going to add to the anchor */
