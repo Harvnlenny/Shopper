@@ -2,11 +2,12 @@
   <ul class="nav">
     <% if user_signed_in? %>
         <li><%= link_to 'My Lists', lists_path %></li>
-        <li><%=  link_to 'Items', items_path %></li>
+        <li><%=  link_to 'Search Items', items_path %></li>
+        <li><%= link_to 'About Shopper', page_path('about') %></li>
         <li><%= link_to 'Sign Out', signout_path %></li>
     <% else %>
+        <li><%= link_to 'About Shopper', page_path('about') %></li>
         <li><%= link_to 'Sign In', signin_path, class: "sign-in-button" %></li>
     <% end %>
-    <li><%= link_to 'About', page_path('about') %></li>
   </ul>
 </nav>
