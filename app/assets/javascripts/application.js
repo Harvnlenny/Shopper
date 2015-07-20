@@ -32,7 +32,7 @@ $(function() {
         // TODO: Do ajax request to update list item as complete
         // on success for that, do these two lines:
         $('.fa-square-o', $row).toggleClass('checkbox-active');
-        $('.item-name, .item-price', $row).toggleClass('item-strikethrough');
+        $('.item-name, .item-quantity, .item-price', $row).toggleClass('item-strikethrough');
     });
 });
 

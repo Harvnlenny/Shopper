@@ -484,6 +484,10 @@ li {
     td {
       vertical-align: middle;
       padding: 0 20px;
+
+      @media #{$mid-width-mq} {
+        padding: 0 10px;
+      }
     }
   }
 }
@@ -494,6 +498,7 @@ li {
 
 .item-price {
   text-align: right;
+  width: 20px;
 }
 
 .item-remove {
