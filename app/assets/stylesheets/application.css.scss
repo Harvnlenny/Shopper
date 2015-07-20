@@ -136,10 +136,6 @@ main {
   margin: 0 auto;
   background-color: rgba(0, 0, 0, 0.5);
   min-height: 1000px;
-
-  @media #{$mobile-width-mq} {
-    min-height: 0;
-  }
 }
 
 .header-container {
