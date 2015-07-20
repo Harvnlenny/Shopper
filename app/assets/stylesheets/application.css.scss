@@ -592,7 +592,7 @@ li {
 
   @media #{$mid-width-mq} {
     max-width: 75px;
-    padding: 10px;
+    padding: 5px;
   }
 }
 
@@ -602,6 +602,10 @@ li {
   margin: 10px 0;
   color: #555;
   font-family: $sans-serif;
+
+  @media #{$mid-width-mq} {
+    font-size: 0.8em;
+  }
 
   @media #{$mid-width-mq} {
     padding: 10px;
@@ -651,10 +655,18 @@ button.not-lowest {
   opacity: .25;
 }
 
+.item-image {
+  margin: 5px;
+}
+
 .fa-pencil {
   padding: 20px;
   color: $gray;
   transition: 0.2s ease-out;
+
+  @media #{$mid-width-mq} {
+    padding: 0 10px;
+  }
 
   &:hover {
     color: $link-blue;

@@ -32,7 +32,7 @@
             <% end %>
           </td>
           <% end %>
-          <td><%= link_to image_tag("#{item.picture.thumb}"), item %></td>
+          <td><%= link_to image_tag("#{item.picture.thumb}"), item, class: "item-image" %></td>
           <td><%= link_to '<i class="fa fa-pencil"></i>'.html_safe, edit_item_path(item) %></td>
         </tr>
       <% end %>
