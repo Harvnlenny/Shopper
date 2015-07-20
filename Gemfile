@@ -14,6 +14,7 @@ gem 'carrierwave'
 gem 'aws-sdk'
 gem 'kaminari'
 gem 'pg'
+gem 'autoprefixer-rails'
 
 group :development, :test do
   gem 'byebug'
