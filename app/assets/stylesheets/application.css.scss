@@ -228,7 +228,7 @@ li {
 
   @media #{$mid-width-mq} {
     position: fixed;
-    background-color: #fff;
+    background-color: $gray;
     left: 0;
     bottom: 0;
     right: 0;
@@ -253,7 +253,7 @@ li {
     bottom: 270px;
     width: 70px;
     height: 70px;
-    background-color: #fff;
+    background-color: $gray;
     transform: translate3d(0, 100%, 0);
 
     @media #{$mobile-width-mq} {
