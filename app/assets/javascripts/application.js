@@ -18,6 +18,7 @@
 // Error messages fade-in/fade-out
 
 $(function() {
+
     $('.mobile-menu-trigger').on('click', function () {
         $('.nav-container').toggleClass('mobile-menu-active');
     });
@@ -26,13 +27,37 @@ $(function() {
         $(this).delay(2500).fadeOut();
     });
 
-    $(".item-name-price-container").on('click', '*', function (event) {
-        event.stopPropagation();
-        $row = $(event.target).parents("tr.item-name-price-container");
-        // TODO: Do ajax request to update list item as complete
-        // on success for that, do these two lines:
-        $('.fa-square-o', $row).toggleClass('checkbox-active');
-        $('.item-name, .item-quantity, .item-price', $row).toggleClass('item-strikethrough');
+    $('.item-name-price-container').each(function () {
+        var $this = $(this);
+        var carted = false;
+        var cartedClass = 'added-to-cart';
+
+        var $checkbox = $this.find('[type="checkbox"]');
+        var $label = $this.find('.toggle-item-label').find('.text');
+
+        var addToCart = function () {
+            carted = true;
+            $label.text('Remove from cart');
+            $this.addClass(cartedClass);
+        };
+
+        var removeFromCart = function () {
+            carted = false;
+            $label.text('Add to cart');
+            $this.removeClass(cartedClass);
+        };
+
+        var toggleItemInCart = function () {
+            if(carted) {
+                removeFromCart();
+            } else {
+                addToCart();
+            }
+        };
+
+        $('.item-name, .item-quantity, .item-price', $this).click(toggleItemInCart);
+        $checkbox.click(toggleItemInCart);
+
     });
 });
 

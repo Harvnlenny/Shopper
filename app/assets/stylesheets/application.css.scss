@@ -126,7 +126,7 @@ body {
 }
 
 main {
-  padding:75px 0;
+  padding: 75px 0;
   position: relative;
 
   @media #{$mid-width-mq} {
@@ -372,7 +372,7 @@ li {
 
 /****** LISTS INDEX PAGE/HOMEPAGE WITH SIGN-IN ******/
 
-  /**** ribbon *****/
+/**** ribbon *****/
 
 #ribbon-container {
   position: absolute;
@@ -452,7 +452,6 @@ li {
   border-left: 29px solid transparent;
 }
 
-
 .shopping-list-container {
   display: flex;
   flex-wrap: wrap;
@@ -496,8 +495,12 @@ li {
   }
 }
 
-.item-name {
-  margin-left: 10px;
+.item-checkbox-td {
+  width: 5px;
+}
+
+.text {
+  @extend %visuallyhidden;
 }
 
 .item-price {
@@ -524,15 +527,20 @@ li {
   @extend %visuallyhidden;
 }
 
-.item-strikethrough {
-  text-decoration: line-through;
-  font-style: italic;
-  color: #777;
-}
-
-.checkbox-active:before {
-  content: '\f046';
-  color: #777;
+.item-name-price-container {
+  &.added-to-cart {
+    .item-checkbox-icon {
+      &:before {
+        content: '\f046';
+        color: #777;
+      }
+    }
+    td {
+      text-decoration: line-through;
+      font-style: italic;
+      color: #777;
+    }
+  }
 }
 
 .shopping-list .total-cell,

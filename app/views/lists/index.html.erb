@@ -14,9 +14,14 @@
                 <tbody>
                 <% current_user.list_items.where(:list => list).includes(:item).order('items.name ASC').each do |item| %>
                     <tr class="item-name-price-container">
+                      <td class="item-checkbox-td">
+                        <label class="toggle-item-label" for="completed-item-checkbox<%= dom_id(item) %>">
+                          <input type="checkbox" id="completed-item-checkbox<%= dom_id(item) %>" class="item-checkbox"/>
+                          <i class="item-checkbox-icon fa fa-square-o"></i>
+                          <span class="text">Add item</span>
+                        </label>
+                      </td>
                       <td class="item-name-td">
-                        <input type="checkbox" id="completed-item-checkbox<%= dom_id(item) %>" class="item-checkbox"/>
-                        <label for="completed-item-checkbox<%= dom_id(item) %>"><i class="fa fa-square-o"></i></label>
                         <span class="item-name"><%= "#{item.name}" %></span>
                       </td>
                       <td class="item-quantity">
