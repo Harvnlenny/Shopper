@@ -193,6 +193,23 @@ button.not-lowest {
 .show-page-winn-dixie-price {
   font-size: 1.25em;
   margin: 0 10px;
+
+  @media #{$mobile-width-mq} {
+    display: block;
+  }
+}
+
+.show-page-item-image img {
+  margin: 30px;
+  max-width: 400px;
+
+  @media #{$mid-width-mq} {
+    max-width: 300px;
+  }
+
+  @media #{$mobile-width-mq} {
+    max-width: 250px;
+  }
 }
 
 /****** EDIT ITEM ******/
