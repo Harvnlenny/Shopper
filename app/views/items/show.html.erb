@@ -1,23 +1,21 @@
-<h1><%= @item.name %></h1>
+<div class="show-item-page-container">
+  <h1 class="show-page-heading"><%= @item.name %></h1>
 
+  <span class="show-page-publix-price">
+    Publix Price:
+    <%= format_money(@item.price_publix) %>
+  </span>
 
+  <span class="show-page-winn-dixie-price">
+    Winn-Dixie Price:
+    <%= format_money(@item.price_winn_dixie) %>
+  </span>
 
-<p>
-<strong>Publix Price:</strong>
-<%= format_money(@item.price_publix) %>
-</p>
+  <div class="show-page-item-image">
+    <%= link_to image_tag("#{@item.picture}"), @item %>
+  </div>
 
-<p>
-<strong>Winn-Dixie Price:</strong>
-<%= format_money(@item.price_winn_dixie) %>
-</p>
+  <%= link_to 'Edit', edit_item_path(@item) %> |
+  <%= link_to 'Back', items_path %>
 
-<p>
-<strong>Picture:</strong>
-<%= link_to image_tag("#{@item.picture}"), @item %>
-</p>
-
-<%= link_to 'Edit', edit_item_path(@item) %> |
-<%= link_to 'Destroy', @item, method: :delete, data: {confirm: 'Are you sure?'} %> |
-<%= link_to 'Back', items_path %> 
-
+</div>

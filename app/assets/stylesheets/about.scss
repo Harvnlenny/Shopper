@@ -1,0 +1,25 @@
+.about-section {
+  margin: 0 auto;
+  max-width: 960px;
+  text-shadow: 1px 1px 1px #000;
+  color: #fff;
+  padding: 0 25px;
+
+  p {
+    line-height: 2;
+    font-size: 1.25em;
+    margin-bottom: 35px;
+
+    @media #{$mid-width-mq} {
+      line-height: 1.5;
+      font-size: 1.15em;
+      margin-bottom: 15px;
+    }
+  }
+}
+
+.about-heading {
+  text-align: center;
+  font-size: 3em;
+  margin-bottom: 50px;
+}
