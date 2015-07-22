@@ -1,6 +1,15 @@
 class ItemsController < ApplicationController
   #before_action :set_item, only: [:show, :create, :edit, :update, :destroy]
 
+  def index
+    quantity = params[:quantity]
+    if params[:word]
+      @items = Item.page(params[:page]).per(12).search(params[:word])
+    else
+      @items = Item.page(params[:page]).per(12).order(:name)
+    end
+  end
+
   def new
     @item = Item.new
   end
@@ -8,8 +17,6 @@ class ItemsController < ApplicationController
   def show
     @item = Item.find(params[:id])
   end
-
-  
 
   def create
     @item = Item.create(item_params)
@@ -25,22 +32,6 @@ class ItemsController < ApplicationController
 
   def edit
     @item = Item.find(params[:id])
-  end
-
-  # def destroy
-  #   @item.destroy
-  #   respond_to do |format|
-  #     format.html {redirect_to items_url, notice: 'Item was successfully destroyed.' }
-  #   end
-  # end
-
-  def index
-    quantity = params[:quantity]
-    if params[:word]
-      @items = Item.page(params[:page]).per(12).search(params[:word])
-    else
-      @items = Item.page(params[:page]).per(12).order(:name)
-    end
   end
 
   def search
@@ -63,7 +54,7 @@ class ItemsController < ApplicationController
   end
 
   def item_params
-    params.require(:item).permit(:price_publix, :price_winn_dixie, :description, :name, :category, :picture, :list_id)
+    params.require(:item).permit(:price_publix, :price_winn_dixie)
   end
 end
 
