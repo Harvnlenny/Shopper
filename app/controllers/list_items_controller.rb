@@ -23,7 +23,7 @@ class ListItemsController < ApplicationController
 
     respond_to do |format|
       if @list_item.save
-        format.html { redirect_to :back, notice: 'List item was successfully created.' }
+        format.html { redirect_to :back, notice: 'Item was successfully added to your shopping list!' }
         format.json { render :show, status: :created, location: @list_item }
       else
         format.html { render :new }
@@ -37,7 +37,7 @@ class ListItemsController < ApplicationController
   def update
     respond_to do |format|
       if @list_item.update(list_item_params)
-        format.html { redirect_to :back, notice: 'List item was successfully updated.' }
+        format.html { redirect_to :back, notice: 'Item was successfully updated.' }
         format.json { render :show, status: :ok, location: @list_item }
       else
         format.html { render :edit }
@@ -51,7 +51,7 @@ class ListItemsController < ApplicationController
   def destroy
     @list_item.destroy
     respond_to do |format|
-      format.html { redirect_to :back, notice: 'List item was successfully removed.' }
+      format.html { redirect_to :back, notice: 'Item was successfully removed from your shopping list.' }
       format.json { head :no_content }
     end
   end

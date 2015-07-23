@@ -15,7 +15,11 @@
     <%= link_to image_tag("#{@item.picture}"), @item %>
   </div>
 
-  <%= link_to 'Edit', edit_item_path(@item) %> |
-  <%= link_to 'Back', items_path %>
+  <div class="show-page-item-description">
+    <%= @item.description %>
+  </div>
+
+  <%= link_to 'Edit', edit_item_path(@item), class: 'edit-back-links' %> |
+  <%= link_to 'Back', items_path, class: 'edit-back-links' %>
 
 </div>

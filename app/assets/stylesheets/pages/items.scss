@@ -212,6 +212,22 @@ button.not-lowest {
   }
 }
 
+.show-page-item-description {
+  margin-bottom: 30px;
+  font-size: 1.15em;
+  font-style: italic;
+}
+
+.edit-back-links {
+  text-decoration: none;
+  color: $gray;
+  transition: 0.2s ease-in-out;
+
+  &:hover {
+    color: $green;
+  }
+}
+
 /****** EDIT ITEM ******/
 
 .form-page-container {
